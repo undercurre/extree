@@ -4,29 +4,19 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "command": "npm start",
-            "name": "Run npm start",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}\\translate.ts",
             "request": "launch",
-            "type": "node-terminal"
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "启动程序",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\translate.ts",
-            "outFiles": [
-                "${workspaceFolder}/**/*.js"
-            ],
+            "type": "node",
             "runtimeArgs": [
                 "--nolazy",
                 "-r",
                 "ts-node/register"
-              ],
-        }
-    ]
+            ],
+        },
+    ],
 }

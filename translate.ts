@@ -1,12 +1,16 @@
 var XLSX = require('xlsx');
 
-var workbook = XLSX.readFile('./lib/17279000088888_test.xls').Workbook;
+var workbook = XLSX.readFile('./lib/study.xlsx');
 
-var sheets = workbook.Sheets
+var sheets = workbook.Sheets;
 
-// 遍历sheet做处理
+var sheetNames = workbook.SheetNames;
 
-sheets.forEach((element: any) => {
+// 新建个表
+var newBook = XLSX.utils.book_new();
+
+// 遍历
+sheetNames.forEach((element: any) => {
     var aoa = XLSX.utils.sheet_to_json(element, {header: 1});
 });
 
