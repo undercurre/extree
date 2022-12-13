@@ -14,12 +14,10 @@ sheetNames.forEach((element: string) => {
     // 取得表数据
     var aoa = XLSX.utils.sheet_to_json(sheets[element], {header: 1});
     // 处理表中的日期时间数据
-    aoa.forEach((item: any) => {
-        item = XLSX.SSF.parse_date_code(item[1])
-        if (item.D !== 0) {
-            
-        }
-        console.log(item)
+    aoa.forEach((item: any, index: Number) => {
+        if (index === 0) return
+        item[1] = XLSX.SSF.parse_date_code(item[1]);
+        item[1] = `${item[1].y}/${item[1].m}/${item[1].d}`;
     });
     // 制作新表
     var newSheet = XLSX.utils.aoa_to_sheet(aoa);
